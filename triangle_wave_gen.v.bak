@@ -1,0 +1,26 @@
+module triangle_wave_gen (
+    input clk,
+    input reset,
+    input [9:0] frequency,   // Tần số đầu vào
+    output reg [23:0] triangle_wave // Sóng tam giác đầu ra 24 bit
+);
+
+    reg [31:0] phase_acc; // Thanh ghi pha
+
+    // Cập nhật giá trị pha
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            phase_acc <= 0;
+        else
+            phase_acc <= phase_acc + {22'b0, frequency}; // Tăng pha theo tần số
+    end
+
+    // Tạo sóng tam giác
+    always @(*) begin
+        if (phase_acc[31])
+            triangle_wave = 24'h7FFFFF - phase_acc[30:7]; // Giảm dần
+        else
+            triangle_wave = phase_acc[30:7]; // Tăng dần
+    end
+
+endmodule

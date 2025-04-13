@@ -1,0 +1,70 @@
+module waveform_generator_tb;
+
+    // Khai báo các tín hiệu
+    reg clk;
+    reg reset;
+    reg [3:0] switches;
+    reg button_freq_inc;
+    reg button_freq_dec;
+    reg [1:0] waveform_select;
+    reg noise_enable;
+    reg [7:0] duty_cycle;
+    wire [23:0] waveform_out;
+
+    // Tín hiệu điều khiển thời gian
+    reg [31:0] time_counter;
+
+    // Khởi tạo module waveform_generator
+    waveform_generator uut (
+        .clk(clk),
+        .reset(reset),
+        .switches(switches),
+        .button_freq_inc(button_freq_inc),
+        .button_freq_dec(button_freq_dec),
+        .waveform_select(waveform_select),
+        .noise_enable(noise_enable),
+        .duty_cycle(duty_cycle),
+        .waveform_out(waveform_out)
+    );
+
+    // Khởi tạo tín hiệu clock
+    always begin
+        #5 clk = ~clk;  // Tạo xung clock với chu kỳ 10ns
+    end
+
+    // Khởi tạo testbench
+    initial begin
+        // Khởi tạo các giá trị ban đầu
+        clk = 0;
+        reset = 0;
+        switches = 4'b0000;
+        button_freq_inc = 0;
+        button_freq_dec = 0;
+        waveform_select = 2'b00;  // Chọn sóng Sin ban đầu
+        noise_enable = 1;         // Bật nhiễu
+        duty_cycle = 8'd50;       // Biên độ sóng vuông
+        time_counter = 0;
+
+        // Đặt lại hệ thống
+        #10 reset = 1;
+        #10 reset = 0;
+
+        // Thử các sóng và bật tắt nhiễu
+        #100000 waveform_select = 2'b00;  // Chọn sóng Sin
+        #4000000 noise_enable = 1;        // Bật nhiễu và chạy 4000000ns
+        #4000000 noise_enable = 0;        // Tắt nhiễu và chạy 4000000ns
+        #100000 waveform_select = 2'b01;  // Chọn sóng vuông
+        #4000000 noise_enable = 1;        // Bật nhiễu và chạy 4000000ns
+        #4000000 noise_enable = 0;        // Tắt nhiễu và chạy 4000000ns
+        #100000 waveform_select = 2'b10;  // Chọn sóng tam giác
+        #4000000 noise_enable = 1;        // Bật nhiễu và chạy 4000000ns
+        #4000000 noise_enable = 0;        // Tắt nhiễu và chạy 4000000ns
+        #100000 waveform_select = 2'b11;  // Chọn sóng ECG
+        #4000000 noise_enable = 1;        // Bật nhiễu và chạy 4000000ns
+        #4000000 noise_enable = 0;        // Tắt nhiễu và chạy 4000000ns
+
+        // Kết thúc mô phỏng
+        #100000 $finish;
+    end
+
+endmodule

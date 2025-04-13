@@ -1,0 +1,19 @@
+
+State Machine - |waveform_generator|wm8731_config:codec_config|state
+Name state.DONE state.WAIT state.SEND state.IDLE 
+state.IDLE 0 0 0 0 
+state.SEND 0 0 1 1 
+state.WAIT 0 1 0 1 
+state.DONE 1 0 0 1 
+
+State Machine - |waveform_generator|wm8731_config:codec_config|i2c_master:i2c_inst|state
+Name state.STOP state.SEND_DATA3 state.SEND_DATA2 state.SEND_DATA1 state.SEND_REG state.SEND_ADDR state.START state.IDLE state.DONE 
+state.IDLE 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 1 1 0 
+state.SEND_ADDR 0 0 0 0 0 1 0 1 0 
+state.SEND_REG 0 0 0 0 1 0 0 1 0 
+state.SEND_DATA1 0 0 0 1 0 0 0 1 0 
+state.SEND_DATA2 0 0 1 0 0 0 0 1 0 
+state.SEND_DATA3 0 1 0 0 0 0 0 1 0 
+state.STOP 1 0 0 0 0 0 0 1 0 
+state.DONE 0 0 0 0 0 0 0 1 1 

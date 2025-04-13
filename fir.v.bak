@@ -1,0 +1,61 @@
+
+module fir #(parameter N = 24)(
+    input  logic clk, reset,
+    input  logic [N-1:0] data_in,  // Input data, 24-bit
+    output logic [N-1:0] data_out  // Output data, 24-bit
+);
+
+    // Coefficients definition
+    // Moving Average Filter, 23rd order (24-point FIR filter)
+    // 24 coefficients; 1/(order+1) = 1/24 ≈ 0.0416667
+    // Scaling factor: 128 (for fixed-point representation)
+    // 0.0416667 x 128 ≈ 5.333 ≈ 6'b000101 (rounded to 6 bits)
+    localparam logic [5:0] b[0:23] = '{
+        6'b000101, 6'b000101, 6'b000101, 6'b000101,
+        6'b000101, 6'b000101, 6'b000101, 6'b000101,
+        6'b000101, 6'b000101, 6'b000101, 6'b000101,
+        6'b000101, 6'b000101, 6'b000101, 6'b000101,
+        6'b000101, 6'b000101, 6'b000101, 6'b000101,
+        6'b000101, 6'b000101, 6'b000101, 6'b000101
+    };
+
+    logic [N-1:0] x[0:23];  // Array to hold delayed values, 24-bit
+
+    // Create delays i.e x[n-1], x[n-2], .. x[n-23]
+    // Instantiate D Flip Flops
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            for (int i = 0; i < 24; i++) begin
+                x[i] <= '0;  // Reset all delayed values to 0
+            end
+        end else begin
+            x[0] <= data_in;  // Update the first delay with input data
+            for (int i = 1; i < 24; i++) begin
+                x[i] <= x[i-1];  // Shift the delayed values
+            end
+        end
+    end
+
+    // Multiplication and Addition
+    logic [N+5:0] Mul[0:23];  // Multiplication results (24 + 6 = 30 bits)
+    logic [N+5:0] Add_final;   // Accumulator for final sum (30 bits)
+
+    always_comb begin
+        Add_final = '0;  // Initialize accumulator to 0
+        for (int i = 0; i < 24; i++) begin
+            Mul[i] = x[i] * b[i];  // Multiply delayed values with coefficients
+            Add_final += Mul[i];   // Accumulate the results
+        end
+    end
+
+    // Final calculation to output 
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            data_out <= '0;  // Reset output to 0
+        end else begin
+            // Truncate or round the result to 24 bits
+            data_out <= Add_final[N+5 -: N];  // Take the most significant 24 bits
+        end
+    end
+
+endmodule

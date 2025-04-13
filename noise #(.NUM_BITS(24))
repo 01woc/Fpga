@@ -1,0 +1,74 @@
+module noise #(parameter NUM_BITS=24)
+  (
+   input i_Clk,
+   input i_Enable,
+
+   // Optional Seed Value
+   input i_Seed_DV,
+   input [NUM_BITS-1:0] i_Seed_Data,
+
+   output [NUM_BITS-1:0] o_LFSR_Data,
+   output logic o_LFSR_Done = 1'b0
+   );
+  
+  reg r_XNOR;
+  reg [NUM_BITS-1:0] r_LFSR;
+
+  // Initialize LFSR
+  initial r_LFSR = 24'b0000_0000_0000_0000_0000_0001;  
+
+  always @(posedge i_Clk) begin
+    if (i_Enable) begin
+        if (i_Seed_DV) begin
+            r_LFSR <= i_Seed_Data;
+        end
+        else if (r_LFSR == 24'b0) begin
+            r_LFSR <= 24'b0000_0000_0000_0000_0000_0001; // Prevent stuck state
+        end
+        else begin
+            r_LFSR <= {r_LFSR[NUM_BITS-2:0], r_XNOR}; // Shift register
+        end
+    end
+  end
+
+  // Assign outputs
+  assign o_LFSR_Data = r_LFSR;  // ✅ This prevents zzzz
+
+  always @(posedge i_Clk) begin
+    if (r_LFSR == 24'b0000_0000_0000_0000_0000_0001 && i_Enable)
+        o_LFSR_Done <= 1'b1;
+    else
+        o_LFSR_Done <= 1'b0;
+  end
+
+  // Create Feedback Polynomials
+  always @(*) begin
+    r_XNOR = 1'b0;
+    case (NUM_BITS)
+        3: r_XNOR = r_LFSR[2] ^~ r_LFSR[1];  
+        4: r_XNOR = r_LFSR[3] ^~ r_LFSR[0];  
+        5: r_XNOR = r_LFSR[4] ^~ r_LFSR[2];  
+        6: r_XNOR = r_LFSR[5] ^~ r_LFSR[4];  
+        7: r_XNOR = r_LFSR[6] ^~ r_LFSR[5];  
+        8: r_XNOR = r_LFSR[7] ^~ r_LFSR[5] ^~ r_LFSR[4] ^~ r_LFSR[3];  
+        9: r_XNOR = r_LFSR[8] ^~ r_LFSR[5];  
+        10: r_XNOR = r_LFSR[9] ^~ r_LFSR[7];  
+        11: r_XNOR = r_LFSR[10] ^~ r_LFSR[9];  
+        12: r_XNOR = r_LFSR[11] ^~ r_LFSR[6] ^~ r_LFSR[4] ^~ r_LFSR[1];  
+        13: r_XNOR = r_LFSR[12] ^~ r_LFSR[4] ^~ r_LFSR[3] ^~ r_LFSR[1];  
+        14: r_XNOR = r_LFSR[13] ^~ r_LFSR[5] ^~ r_LFSR[3] ^~ r_LFSR[1];  
+        15: r_XNOR = r_LFSR[14] ^~ r_LFSR[13];  
+        16: r_XNOR = r_LFSR[15] ^~ r_LFSR[14] ^~ r_LFSR[12] ^~ r_LFSR[3];  
+        17: r_XNOR = r_LFSR[16] ^~ r_LFSR[13];  
+        18: r_XNOR = r_LFSR[17] ^~ r_LFSR[10];  
+        19: r_XNOR = r_LFSR[18] ^~ r_LFSR[5] ^~ r_LFSR[2] ^~ r_LFSR[1];  
+        20: r_XNOR = r_LFSR[19] ^~ r_LFSR[16];  
+        21: r_XNOR = r_LFSR[20] ^~ r_LFSR[18];  
+        22: r_XNOR = r_LFSR[21] ^~ r_LFSR[20];  
+        23: r_XNOR = r_LFSR[22] ^~ r_LFSR[17];  
+        24: r_XNOR = r_LFSR[23] ^~ r_LFSR[22] ^~ r_LFSR[21] ^~ r_LFSR[16];  
+        default: r_XNOR = 1'b0; // Default case to handle unexpected NUM_BITS
+    endcase
+  end
+
+endmodule

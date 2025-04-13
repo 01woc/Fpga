@@ -1,0 +1,85 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'hihi_clock'
+Slack : 6.054
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'hihi_clock'
+Slack : 0.242
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'hihi_clock'
+Slack : 14.442
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'hihi_clock'
+Slack : 3.450
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'hihi_clock'
+Slack : 8.871
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'hihi_clock'
+Slack : 6.213
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'hihi_clock'
+Slack : 0.226
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'hihi_clock'
+Slack : 14.818
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'hihi_clock'
+Slack : 3.094
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'hihi_clock'
+Slack : 8.828
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'hihi_clock'
+Slack : 10.513
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'hihi_clock'
+Slack : 0.139
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'hihi_clock'
+Slack : 16.252
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'hihi_clock'
+Slack : 2.404
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'hihi_clock'
+Slack : 8.834
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'hihi_clock'
+Slack : 11.465
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'hihi_clock'
+Slack : 0.127
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'hihi_clock'
+Slack : 16.242
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'hihi_clock'
+Slack : 2.413
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'hihi_clock'
+Slack : 8.827
+TNS   : 0.000
+
+------------------------------------------------------------

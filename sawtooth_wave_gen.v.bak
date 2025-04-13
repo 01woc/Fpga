@@ -1,0 +1,24 @@
+module sawtooth_wave_gen (
+    input clk,               // Xung clock hệ thống
+    input reset,             // Tín hiệu reset
+    input [31:0] frequency,  // Tần số sóng răng cưa
+    output reg [23:0] sawtooth_wave // Tín hiệu sóng răng cưa 24-bit
+);
+
+    // Bộ đếm để tạo sóng răng cưa
+    reg [31:0] phase_acc;
+
+    // Cập nhật bộ đếm dựa trên tần số đầu vào
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            phase_acc <= 32'd0; // Reset bộ đếm
+        else
+            phase_acc <= phase_acc + frequency; // Tăng pha dựa trên tần số
+    end
+
+    // Tạo sóng răng cưa bằng cách sử dụng 24 bit cao của phase_acc
+    always @(posedge clk) begin
+        sawtooth_wave <= phase_acc[31:8]; // Chỉ lấy 24 bit cao để làm giá trị đầu ra
+    end
+
+endmodule

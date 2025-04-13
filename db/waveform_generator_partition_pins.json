@@ -1,0 +1,201 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "waveform_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[12]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[13]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[14]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[15]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[16]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[17]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[18]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[19]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[20]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[21]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[22]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_out[23]",
+					"strict" : false
+				},
+				{
+					"name" : "i2c_scl",
+					"strict" : false
+				},
+				{
+					"name" : "bclk",
+					"strict" : false
+				},
+				{
+					"name" : "daclrc",
+					"strict" : false
+				},
+				{
+					"name" : "i2c_sda",
+					"strict" : false
+				},
+				{
+					"name" : "noise_enable",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_select[1]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_select[0]",
+					"strict" : false
+				},
+				{
+					"name" : "waveform_select[2]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "duty_cycle[0]",
+					"strict" : false
+				},
+				{
+					"name" : "duty_cycle[5]",
+					"strict" : false
+				},
+				{
+					"name" : "duty_cycle[6]",
+					"strict" : false
+				},
+				{
+					"name" : "duty_cycle[7]",
+					"strict" : false
+				},
+				{
+					"name" : "duty_cycle[1]",
+					"strict" : false
+				},
+				{
+					"name" : "duty_cycle[2]",
+					"strict" : false
+				},
+				{
+					"name" : "duty_cycle[3]",
+					"strict" : false
+				},
+				{
+					"name" : "duty_cycle[4]",
+					"strict" : false
+				},
+				{
+					"name" : "button_freq_dec",
+					"strict" : false
+				},
+				{
+					"name" : "button_freq_inc",
+					"strict" : false
+				},
+				{
+					"name" : "switches[0]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[1]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[2]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

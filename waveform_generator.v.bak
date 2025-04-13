@@ -1,0 +1,79 @@
+module waveform_generator(
+    input clk,                 // Xung clock hệ thống
+    input reset,               // Đặt lại hệ thống
+    input [3:0] switches,      // Công tắc điều khiển tần số hoặc biên độ
+    input button_freq_inc,     // Nút tăng tần số
+    input button_freq_dec,     // Nút giảm tần số
+    input [1:0] waveform_select, // Chọn loại sóng: 00-Sine, 01-Square, 10-Triangle, 11-ECG
+    input noise_enable,        // Bật/tắt nhiễu
+    output [23:0] waveform_out // Tín hiệu sóng ra 24 bit
+);
+
+    // Các tín hiệu giữa các module
+    wire [23:0] sine_wave, square_wave, triangle_wave, ecg_wave;
+    wire [23:0] noise_wave, final_wave;
+    wire [9:0] frequency;  // Tần số được điều khiển từ các công tắc và nút bấm
+    wire [7:0] amplitude;  // Biên độ sóng
+
+    // Các module con
+    sine_wave_gen sine_gen (
+        .clk(clk),
+        .reset(reset),
+        .frequency(frequency),
+        .sine_wave(sine_wave)
+    );
+
+    square_wave_gen square_gen (
+        .clk(clk),
+        .reset(reset),
+        .frequency(frequency),
+        .square_wave(square_wave)
+    );
+
+    triangle_wave_gen triangle_gen (
+        .clk(clk),
+        .reset(reset),
+        .frequency(frequency),
+        .triangle_wave(triangle_wave)
+    );
+
+    ecg_wave_gen ecg_gen (
+        .clk(clk),
+        .reset(reset),
+        .frequency(frequency),
+        .ecg_wave(ecg_wave)
+    );
+
+    noise_injection noise_gen (
+        .clk(clk),
+        .reset(reset),
+        .input_wave(final_wave),
+        .output_wave(noise_wave)
+    );
+
+    // Module điều khiển (frequency và amplitude)
+    control control_unit (
+        .clk(clk),
+        .reset(reset),
+        .switches(switches),
+        .button_freq_inc(button_freq_inc),
+        .button_freq_dec(button_freq_dec),
+        .frequency(frequency),
+        .amplitude(amplitude)
+    );
+
+    // Lựa chọn sóng và thêm nhiễu (nếu có)
+    always @(*) begin
+        case (waveform_select)
+            2'b00: final_wave = sine_wave;        // Chọn sóng sin
+            2'b01: final_wave = square_wave;      // Chọn sóng vuông
+            2'b10: final_wave = triangle_wave;    // Chọn sóng tam giác
+            2'b11: final_wave = ecg_wave;         // Chọn sóng ECG
+            default: final_wave = 24'b0;
+        endcase
+    end
+
+    // Nếu bật nhiễu, kết hợp sóng với nhiễu
+    assign waveform_out = (noise_enable) ? noise_wave : final_wave;
+
+endmodule

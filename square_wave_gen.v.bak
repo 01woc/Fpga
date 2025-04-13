@@ -1,0 +1,23 @@
+module square_wave_gen (
+    input clk,
+    input reset,
+    input [9:0] frequency,   // Tần số đầu vào
+    output reg [23:0] square_wave // Sóng vuông đầu ra 24 bit
+);
+
+    reg [31:0] phase_acc; // Thanh ghi pha
+
+    // Cập nhật giá trị pha
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            phase_acc <= 0;
+        else
+            phase_acc <= phase_acc + {22'b0, frequency}; // Tăng pha theo tần số
+    end
+
+    // Tạo sóng vuông
+    always @(*) begin
+        square_wave = (phase_acc[31]) ? 24'h7FFFFF : 24'h800000; // Sóng vuông 24 bit
+    end
+
+endmodule

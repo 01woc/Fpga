@@ -1,0 +1,31 @@
+module control (
+    input clk,               // Xung clock hệ thống
+    input reset,             // Tín hiệu reset
+    input [3:0] switches,    // Công tắc điều khiển biên độ
+    input button_freq_inc,   // Nút tăng tần số
+    input button_freq_dec,   // Nút giảm tần số
+    output reg [9:0] frequency, // Tần số đầu ra (10-bit)
+    output reg [7:0] amplitude  // Biên độ đầu ra (8-bit)
+);
+
+    // Điều khiển tần số
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            frequency <= 10'b0; // Đặt lại tần số về 0 khi reset
+        end else begin
+            if (button_freq_inc)
+                frequency <= frequency + 1; // Tăng tần số
+            if (button_freq_dec)
+                frequency <= frequency - 1; // Giảm tần số
+        end
+    end
+
+    // Điều khiển biên độ
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            amplitude <= 8'b0; // Đặt lại biên độ về 0 khi reset
+        else
+            amplitude <= switches; // Gán giá trị công tắc cho biên độ
+    end
+
+endmodule

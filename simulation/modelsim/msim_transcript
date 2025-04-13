@@ -1,0 +1,223 @@
+# Reading pref.tcl
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 win64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do waveform_generator_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Questa Intel Starter FPGA Edition-64 vmap 2021.2 Lib Mapping Utility 2021.04 Apr 14 2021
+# vmap work rtl_work 
+# Copying D:/intelFPGA_lite/21.1/questa_fse/win64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/wm8731_config.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:37 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/wm8731_config.v 
+# -- Compiling module wm8731_config
+# 
+# Top level modules:
+# 	wm8731_config
+# End time: 15:03:37 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/i2s_transmitter.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:37 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/i2s_transmitter.v 
+# -- Compiling module i2s_transmitter
+# 
+# Top level modules:
+# 	i2s_transmitter
+# End time: 15:03:37 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/i2c_master.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:37 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/i2c_master.v 
+# -- Compiling module i2c_master
+# 
+# Top level modules:
+# 	i2c_master
+# End time: 15:03:37 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/clock_generator.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:37 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/clock_generator.v 
+# -- Compiling module clock_generator
+# 
+# Top level modules:
+# 	clock_generator
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator.v 
+# -- Compiling module waveform_generator
+# 
+# Top level modules:
+# 	waveform_generator
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/control.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/control.v 
+# -- Compiling module control
+# 
+# Top level modules:
+# 	control
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/noise_injection.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/noise_injection.v 
+# -- Compiling module noise_injection
+# 
+# Top level modules:
+# 	noise_injection
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/sawtooth_wave_gen.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/sawtooth_wave_gen.v 
+# -- Compiling module sawtooth_wave_gen
+# 
+# Top level modules:
+# 	sawtooth_wave_gen
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/phase_accumulator.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/phase_accumulator.v 
+# -- Compiling module phase_accumulator
+# 
+# Top level modules:
+# 	phase_accumulator
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/fir.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/fir.v 
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/sine_wave_gen.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/sine_wave_gen.v 
+# -- Compiling module sine_wave_gen
+# 
+# Top level modules:
+# 	sine_wave_gen
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/square_wave_gen.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/square_wave_gen.v 
+# -- Compiling module square_wave_gen
+# 
+# Top level modules:
+# 	square_wave_gen
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/triangle_wave_gen.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/triangle_wave_gen.v 
+# -- Compiling module triangle_wave_gen
+# 
+# Top level modules:
+# 	triangle_wave_gen
+# End time: 15:03:38 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/ecg_wave_gen.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:38 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/ecg_wave_gen.v 
+# -- Compiling module ecg_wave_gen
+# 
+# Top level modules:
+# 	ecg_wave_gen
+# End time: 15:03:39 on Apr 13,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main {D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 15:03:39 on Apr 13,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main" D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v 
+# -- Compiling module waveform_generator_tbn01
+# 
+# Top level modules:
+# 	waveform_generator_tbn01
+# End time: 15:03:39 on Apr 13,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  waveform_generator_tbn01
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" waveform_generator_tbn01 
+# Start time: 15:03:39 on Apr 13,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "i2c_master(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "wm8731_config(fast)".
+# ** Warning: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v(18): (vopt-2685) [TFMPC] - Too few port connections for 'uut'.  Expected 16, found 11.
+# ** Warning: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v(18): (vopt-2718) [TFMPC] - Missing connection for port 'dacdat'.
+# ** Warning: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v(18): (vopt-2718) [TFMPC] - Missing connection for port 'daclrc'.
+# ** Warning: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v(18): (vopt-2718) [TFMPC] - Missing connection for port 'bclk'.
+# ** Warning: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v(18): (vopt-2718) [TFMPC] - Missing connection for port 'i2c_scl'.
+# ** Warning: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v(18): (vopt-2718) [TFMPC] - Missing connection for port 'i2c_sda'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=6.
+# Loading work.waveform_generator_tbn01(fast)
+# Loading work.waveform_generator(fast)
+# Loading work.fir(fast)
+# Loading work.phase_accumulator(fast)
+# Loading work.clock_generator(fast)
+# Loading work.wm8731_config(fast)
+# Loading work.i2c_master(fast)
+# Loading work.i2s_transmitter(fast)
+# Loading work.sine_wave_gen(fast)
+# Loading work.square_wave_gen(fast)
+# Loading work.triangle_wave_gen(fast)
+# Loading work.ecg_wave_gen(fast)
+# Loading work.sawtooth_wave_gen(fast)
+# Loading work.control(fast)
+# Loading work.noise_injection(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'waveform_out'. The port definition is at: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/wm8731_config.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /waveform_generator_tbn01/uut/codec_config File: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator.v Line: 53
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'audio_data'. The port definition is at: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/i2s_transmitter.v(7).
+#    Time: 0 ps  Iteration: 0  Instance: /waveform_generator_tbn01/uut/i2s_tx File: D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator.v Line: 63
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Note: $finish    : D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v(81)
+#    Time: 24300020 ns  Iteration: 0  Instance: /waveform_generator_tbn01
+# 1
+# Break in Module waveform_generator_tbn01 at D:/k242/Fgpa/fpga1.1/Fpga-main/Fpga-main/waveform_generator_tbn01.v line 81
+# End time: 15:35:44 on Apr 13,2025, Elapsed time: 0:32:05
+# Errors: 0, Warnings: 8

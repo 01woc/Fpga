@@ -1,0 +1,23 @@
+module noise_injection(
+    input wire clk,
+    input wire reset,
+    input wire [23:0] input_wave,
+    output reg [23:0] output_wave
+);
+
+    reg [23:0] noise;
+    
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            noise <= 24'd0;
+            output_wave <= 24'd0;
+        end else begin
+            // Tạo nhiễu ngẫu nhiên bằng cách sử dụng bộ tạo số giả ngẫu nhiên
+            noise <= (noise << 1) ^ (noise[23] ? 24'hD1B54A : 24'h0);
+            
+            // Kết hợp tín hiệu đầu vào với nhiễu
+            output_wave <= input_wave + noise;
+        end
+    end
+
+endmodule

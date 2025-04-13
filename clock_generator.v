@@ -1,0 +1,34 @@
+module clock_generator (
+    input wire clk_in,     // Clock 50MHz đầu vào
+    input wire reset,      // Reset tín hiệu thấp
+    output reg bclk,       // Bit Clock (2.304 MHz)
+    output reg lrclk       // Left-Right Clock (48 kHz)
+);
+
+    reg [7:0] counter_bclk;
+    reg [10:0] counter_lrclk;
+
+    always @(posedge clk_in or negedge reset) begin
+        if (!reset) begin
+            counter_bclk <= 0;
+            counter_lrclk <= 0;
+            bclk <= 0;
+            lrclk <= 0;
+        end else begin
+            // Bộ chia cho BCLK (50MHz / 22 ≈ 2.304 MHz)
+            counter_bclk <= counter_bclk + 1;
+            if (counter_bclk >= 21) begin
+                bclk <= ~bclk;
+                counter_bclk <= 0;
+            end
+
+            // Bộ chia cho LRCLK (50MHz / 1042 ≈ 48 kHz)
+            counter_lrclk <= counter_lrclk + 1;
+            if (counter_lrclk >= 1041) begin
+                lrclk <= ~lrclk;
+                counter_lrclk <= 0;
+            end
+        end
+    end
+
+endmodule
